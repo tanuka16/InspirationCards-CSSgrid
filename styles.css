@@ -1,0 +1,119 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #303032
+}
+/* define grid */
+main{
+  display: grid;
+  /* define the 2 columns to 1fr, fr is a calculative unit, used in grid. good for sizing in grid */
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  /* spacing between columns and rows */
+  grid-gap: 40px;
+  padding: 60px 0;
+}
+
+.text--medium{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: white;
+
+}
+
+/* technical 14 columns and in the middle 12 */
+.cards{
+  /* start from 2nd column and expands in 12 column */
+  grid-column:  2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  grid-gap: 40px;
+
+}
+
+/* define how bug we want the individual card to be */
+.card{
+  grid-column-end: span 4;                            /* span 4 columns */
+  display: flex;
+  flex-direction: column;
+  background-color: #39393b;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.card:hover{
+  transform: translate(-7px);
+}
+.card_image-container{
+  width: 100%;
+  padding-top: 56.25%;                         /* percentage of the aspect ratio (9/16)*100 = 56.25; 16 by 9 ratio */
+  overflow: hidden;
+  position: relative;
+}
+
+.card_image-container img {
+  width: 100%;
+  position: absolute;
+  /* center the img */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card_content{
+  padding: 30px;
+}
+
+.card_title{
+  margin-bottom: 15px;
+}
+
+.card_info{
+  display: flex;
+  align-self: end;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_price{
+  margin-left: auto;
+  padding: 5px 20px;
+  background-color: #303032;
+  border-radius: 20px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .card{
+    grid-column-end: span 6;
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  main{
+    grid-gap: 20px;
+  }
+  .card{
+    grid-column-end: span 12;
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  main{
+    grid-template-columns: 10px repeat(6, 1fr), 10px;
+    grid-gap: 20px;
+  }
+  .cards{
+    grid-column-end: 2 / span 12;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .card{
+    grid-column-end: span 6;
+  }
+}

@@ -5,7 +5,8 @@
 }
 
 body{
-  background-color: #303032
+  background-color: #FFFF33;
+  /* background-color: #303032 */
 }
 /* define grid */
 main{
@@ -70,6 +71,8 @@ main{
 
 .card_title{
   margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 17px
 }
 
 .card_info{
